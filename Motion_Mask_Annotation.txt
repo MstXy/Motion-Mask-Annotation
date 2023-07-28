@@ -1,0 +1,11 @@
+
+Motion Mask Annotation
+
+To reduce workload on the dense annotation task, we tweak on automatically generated motion masks from pre-trained models contrary to annotating frame-by-frame. 
+A top-down annotating approach is used, that is, we first identify the moving object for tracking and segmentation, instead of segmenting each frame and handpicking the moving objects
+Specifically, we employ Track Anything (a combination of XMem for long-term video segmentation and SAM for more precise masks generation) to give preliminary motion masks to the video segments.
+We manually identify moving objects in the beginning frames with interactive prompts and mask the objects automatically in consecutive frames.
+Then, we convert the generated motion masks of each frame into json type polygon labels and use manual data labeling tools for further tweak. SAM is also incorporated into the data labeling tool to assist in complex scene annotation.
+
+
+
